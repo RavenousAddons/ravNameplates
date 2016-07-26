@@ -1,0 +1,9 @@
+## Interface: 70003
+## Title: |cff5f8aa6Ravenous Nameplates
+## Name: Ravenous Nameplates
+## Author: Spontyman
+## Notes: "Cycles through four different Nameplate configurations: none, enemy, friendly, both."
+## Version: 1.0.3
+## X-Website: http://www.wowinterface.com/downloads/info24006-RavenousNameplates.html
+
+nameplates.lua
