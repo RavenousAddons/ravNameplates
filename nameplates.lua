@@ -6,7 +6,7 @@ local addonName, addonTable = ... -- Pulls back the Addon-Local Variables and st
 
 
 local function prettyPrint(message)
-    local prefix = "\124cff5f8aa6ravNameplates:\124r "
+    local prefix = "\124cff5f8aa6Ravenous Nameplates:\124r "
 
     DEFAULT_CHAT_FRAME:AddMessage(prefix..message)
 end
