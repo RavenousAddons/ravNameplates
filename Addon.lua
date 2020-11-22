@@ -58,7 +58,8 @@ end
 
 SLASH_RAVNAMEPLATES1 = "/ravenousnameplates"
 SLASH_RAVNAMEPLATES2 = "/ravnameplates"
-SLASH_RAVNAMEPLATES3 = "/ravn"
+SLASH_RAVNAMEPLATES3 = "/ravplates"
+SLASH_RAVNAMEPLATES4 = "/ravn"
 local function slashHandler(message, editbox)
     if message == "help" or message == "h" then
         prettyPrint("")
