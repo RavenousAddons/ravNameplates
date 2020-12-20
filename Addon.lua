@@ -6,23 +6,26 @@
 -- License: Public Domain
 ---
 local name, ravNameplates = ...
-ravNameplates.name = "Ravenous Nameplates"
-ravNameplates.version = GetAddOnMetadata(name, "Version")
-ravNameplates.github = "https://github.com/waldenp0nd/ravNameplates"
-ravNameplates.curseforge = "https://www.curseforge.com/wow/addons/ravnameplates"
-ravNameplates.wowinterface = "https://www.wowinterface.com/downloads/info24006-RavenousNameplates.html"
-ravNameplates.discord = "https://discord.gg/dNfqnRf2fq"
 
 local defaults = {
     COMMAND = "ravn",
     LOCALE =  "enUS"
 }
 
+local colorAlliance = "0078ff"
+local colorHorde = "b30000"
+local colorNeutral = "f8b700"
+local colorNone = "999999"
+local faction, _ = UnitFactionGroup("player")
+local guild, _, _, _ = GetGuildInfo("player")
+local colorFriendly = faction == "Alliance" and colorAlliance or faction == "Horde" and colorHorde or colorNeutral
+local colorEnemy = faction == "Alliance" and colorHorde or faction == "Horde" and colorAlliance or colorNeutral
+
 local function prettyPrint(message, full)
     if full == false then
         message = message .. ":"
     end
-    local prefix = "|cff9eb8c9" .. ravNameplates.name .. (full and " " or ":|r ")
+    local prefix = "|cff" .. ravNameplates.color .. ravNameplates.name .. (full and " " or ":|r ")
     DEFAULT_CHAT_FRAME:AddMessage(prefix .. message)
 end
 
@@ -47,15 +50,6 @@ function ensureMacro()
     end
 end
 
-
-local colorAlliance = "0078ff"
-local colorHorde = "b30000"
-local colorNeutral = "f8b700"
-local colorNone = "999999"
-local faction, _ = UnitFactionGroup("player")
-local guild, _, _, _ = GetGuildInfo("player")
-local colorFriendly = faction == "Alliance" and colorAlliance or faction == "Horde" and colorHorde or colorNeutral
-local colorEnemy = faction == "Alliance" and colorHorde or faction == "Horde" and colorAlliance or colorNeutral
 
 local function nameplateHandler()
     local showingFriends = GetCVar("nameplateShowFriends") == "1" and true or false

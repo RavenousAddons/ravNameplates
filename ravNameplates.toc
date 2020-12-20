@@ -1,8 +1,8 @@
 ## Interface: 90002
-## Version: 2.1.0
+## Version: 2.1.1
 
 ## Name: Ravenous Nameplates
-## Title: |cff9eb8c9Ravenous Nameplates|r
+## Title: Ravenous |cff999999Nameplates|r
 ## Notes: "Cycles through four different nameplate configurations: enemy, friendly, all, none."
 ## Author: waldenp0nd
 
@@ -10,7 +10,6 @@
 
 ## X-License: Public Domain
 ## X-Website: https://github.com/waldenp0nd/ravNameplates
-
 
 locales.lua
 Addon.lua
