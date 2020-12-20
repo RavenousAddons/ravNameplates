@@ -1,12 +1,12 @@
 ## Interface: 90002
-## Version: 2.0.0
+## Version: 2.1.0
 
 ## Name: Ravenous Nameplates
-## Title: |cff9eb8c9Ravenous Nameplates
+## Title: |cff9eb8c9Ravenous Nameplates|r
 ## Notes: "Cycles through four different nameplate configurations: enemy, friendly, all, none."
 ## Author: waldenp0nd
 
-## SavedVariables: RAVN_version
+## SavedVariables: RAVN_version, RAVN_seenUpdate
 
 ## X-License: Public Domain
 ## X-Website: https://github.com/waldenp0nd/ravNameplates
