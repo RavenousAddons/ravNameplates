@@ -17,7 +17,6 @@ local colorHorde = "b30000"
 local colorNeutral = "f8b700"
 local colorNone = "999999"
 local faction, _ = UnitFactionGroup("player")
-local guild, _, _, _ = GetGuildInfo("player")
 local colorFriendly = faction == "Alliance" and colorAlliance or faction == "Horde" and colorHorde or colorNeutral
 local colorEnemy = faction == "Alliance" and colorHorde or faction == "Horde" and colorAlliance or colorNeutral
 
@@ -30,23 +29,32 @@ local function prettyPrint(message, full)
 end
 
 local function sendVersionData()
-    C_ChatInfo.SendAddonMessage(name, RAVN_version, "YELL")
-    C_ChatInfo.SendAddonMessage(name, RAVN_version, "PARTY")
-    C_ChatInfo.SendAddonMessage(name, RAVN_version, "RAID")
-    if guild then
-        C_ChatInfo.SendAddonMessage(name, RAVN_version, "GUILD")
+    local inInstance, _ = IsInInstance()
+    if inInstance then
+        C_ChatInfo.SendAddonMessage(name, RAV_version, "INSTANCE_CHAT")
+    elseif IsInGroup() then
+        if GetNumGroupMembers() > 5 then
+            C_ChatInfo.SendAddonMessage(name, RAV_version, "RAID")
+        end
+        C_ChatInfo.SendAddonMessage(name, RAV_version, "PARTY")
+    end
+    local guildName, _, _, _ = GetGuildInfo("player")
+    if guildName then
+        C_ChatInfo.SendAddonMessage(name, RAV_version, "GUILD")
     end
 end
 
 function ensureMacro()
-    local body = "/" .. defaults.COMMAND
-    local numberOfMacros, _ = GetNumMacros()
-    if GetMacroIndexByName(ravNameplates.name) > 0 then
-        EditMacro(GetMacroIndexByName(ravNameplates.name), ravNameplates.name, 134067, body)
-    elseif numberOfMacros < 120 then
-        CreateMacro(ravNameplates.name, 134067, body)
-    else
-        prettyPrint(ravNameplates.locales[ravNameplates.locale].nospace)
+    if not UnitAffectingCombat("player")
+        local body = "/" .. defaults.COMMAND
+        local numberOfMacros, _ = GetNumMacros()
+        if GetMacroIndexByName(ravNameplates.name) > 0 then
+            EditMacro(GetMacroIndexByName(ravNameplates.name), ravNameplates.name, 134067, body)
+        elseif numberOfMacros < 120 then
+            CreateMacro(ravNameplates.name, 134067, body)
+        else
+            prettyPrint(ravNameplates.locales[ravNameplates.locale].nospace)
+        end
     end
 end
 
