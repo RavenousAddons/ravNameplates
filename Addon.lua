@@ -45,7 +45,7 @@ local function sendVersionData()
 end
 
 function ensureMacro()
-    if not UnitAffectingCombat("player")
+    if not UnitAffectingCombat("player") then
         local body = "/" .. defaults.COMMAND
         local numberOfMacros, _ = GetNumMacros()
         if GetMacroIndexByName(ravNameplates.name) > 0 then
