@@ -1,0 +1,13 @@
+<Ui>
+    <Script file="metadata.lua" />
+    <Script file="locales.lua" />
+    <Script file="functions.lua" />
+    <Script file="core.lua" />
+
+    <Frame name="ravNameplates">
+        <Scripts>
+            <OnLoad function="ravNameplates_OnLoad" />
+            <OnEvent function="ravNameplates_OnEvent" />
+        </Scripts>
+    </Frame>
+</Ui>

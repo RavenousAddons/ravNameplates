@@ -1,15 +1,16 @@
 ## Interface: 90002
-## Version: 2.1.2
+## Version: 2.2.0
 
 ## Name: Ravenous Nameplates
-## Title: Ravenous |cff13bd12Nameplates|r
-## Notes: "Cycles through four different nameplate configurations: enemy, friendly, all, none."
-## Author: waldenp0nd
+## Title: Ravenous |cff87d387Nameplates|r
+## Notes: Cycles through four different nameplate configurations: enemy, friendly, all, none.
+## Author: RavenousAddons
 
-## SavedVariables: RAVN_version, RAVN_seenUpdate
+## SavedVariables: RAVN_version
 
 ## X-License: Public Domain
-## X-Website: https://github.com/waldenp0nd/ravNameplates
+## X-Website: https://github.com/RavenousAddons/ravNameplates
+## X-Curse-Project-ID: 429939
+## X-WoWI-ID: 24006
 
-locales.lua
-Addon.lua
+ravNameplates.xml
