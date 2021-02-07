@@ -1,5 +1,5 @@
-local _, ravNameplates = ...
-local L = ravNameplates.L
+local _, ns = ...
+local L = ns.L
 
 local colorAlliance = "0078ff"
 local colorHorde = "b30000"
@@ -9,27 +9,27 @@ local faction, _ = UnitFactionGroup("player")
 local colorFriendly = faction == "Alliance" and colorAlliance or faction == "Horde" and colorHorde or colorNeutral
 local colorEnemy = faction == "Alliance" and colorHorde or faction == "Horde" and colorAlliance or colorNeutral
 
-function ravNameplates:PrettyPrint(message)
-    DEFAULT_CHAT_FRAME:AddMessage("|cff" .. ravNameplates.color .. ravNameplates.name .. ":|r " .. message)
+function ns:PrettyPrint(message)
+    DEFAULT_CHAT_FRAME:AddMessage("|cff" .. ns.color .. ns.name .. ":|r " .. message)
 end
 
 local hasSeenNoSpaceMessage = false
-function ravNameplates:EnsureMacro()
+function ns:EnsureMacro()
     if not UnitAffectingCombat("player") then
         local body = "/ravn"
         local numberOfMacros, _ = GetNumMacros()
-        if GetMacroIndexByName(ravNameplates.name) > 0 then
-            EditMacro(GetMacroIndexByName(ravNameplates.name), ravNameplates.name, 134067, body)
+        if GetMacroIndexByName(ns.name) > 0 then
+            EditMacro(GetMacroIndexByName(ns.name), ns.name, 134067, body)
         elseif numberOfMacros < 120 then
-            CreateMacro(ravNameplates.name, 134067, body)
+            CreateMacro(ns.name, 134067, body)
         elseif not hasSeenNoSpaceMessage then
             hasSeenNoSpaceMessage = true
-            ravNameplates:PrettyPrint(L.NoMacroSpace)
+            ns:PrettyPrint(L.NoMacroSpace)
         end
     end
 end
 
-function ravNameplates:Toggle()
+function ns:Toggle()
     local showingFriends = GetCVar("nameplateShowFriends") == "1" and true or false
     local showingEnemies = GetCVar("nameplateShowEnemies") == "1" and true or false
 
@@ -37,21 +37,21 @@ function ravNameplates:Toggle()
     if showingFriends and showingEnemies then
         SetCVar("nameplateShowFriends", 0)
         SetCVar("nameplateShowEnemies", 0)
-        ravNameplates:PrettyPrint(string.format(L.Hiding, colorNone, L.All))
+        ns:PrettyPrint(string.format(L.Hiding, colorNone, L.All))
     -- Friendly → All
     elseif showingFriends then
         SetCVar("nameplateShowFriends", 1)
         SetCVar("nameplateShowEnemies", 1)
-        ravNameplates:PrettyPrint(string.format(L.Showing, colorNeutral, L.All))
+        ns:PrettyPrint(string.format(L.Showing, colorNeutral, L.All))
     -- Enemy → Friendly
     elseif showingEnemies then
         SetCVar("nameplateShowFriends", 1)
         SetCVar("nameplateShowEnemies", 0)
-        ravNameplates:PrettyPrint(string.format(L.Showing, colorFriendly, L.Friendly))
+        ns:PrettyPrint(string.format(L.Showing, colorFriendly, L.Friendly))
     -- None → Enemy
     else
         SetCVar("nameplateShowFriends", 0)
         SetCVar("nameplateShowEnemies", 1)
-        ravNameplates:PrettyPrint(string.format(L.Showing, colorEnemy, L.Enemy))
+        ns:PrettyPrint(string.format(L.Showing, colorEnemy, L.Enemy))
     end
 end
