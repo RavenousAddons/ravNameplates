@@ -31,7 +31,6 @@ SlashCmdList["RAVNAMEPLATES"] = function(message)
         ns:PrettyPrint(L.SupportHeading)
         print(string.format(L.Support1, ns.color, ns.name))
         print(L.Support2)
-        print(string.format(L.Support3, ns.color, ns.discord))
     elseif UnitAffectingCombat("player") then
         RaidNotice_AddMessage(RaidWarningFrame, L.Warning, ChatTypeInfo["RAID_WARNING"])
     else
