@@ -1,10 +1,11 @@
-## Interface: 100007
-## Version: 2.2.5
+## Interface: 100100
+## Version: 2.2.6
 
 ## Name: Ravenous Nameplates
 ## Title: Ravenous |cff87d387Nameplates|r
 ## Notes: Cycles through four different nameplate configurations: enemy, friendly, all, none.|n|n|cffbbbbbbSlash command: /ravn|r
 ## Author: RavenousAddons
+## IconAtlas: nameplates-icon-flag-neutral
 
 ## SavedVariables: RAVN_version
 
