@@ -13,23 +13,17 @@ function ns:PrettyPrint(message)
     DEFAULT_CHAT_FRAME:AddMessage("|cff" .. ns.color .. ns.name .. ":|r " .. message)
 end
 
-local hasSeenNoSpaceMessage = false
-function ns:EnsureMacro()
-    if not UnitAffectingCombat("player") then
-        local body = "/" .. ns.command
-        local numberOfMacros, _ = GetNumMacros()
-        if GetMacroIndexByName(ns.name) > 0 then
-            EditMacro(GetMacroIndexByName(ns.name), ns.name, ns.icon, body)
-        elseif numberOfMacros < 120 then
-            CreateMacro(ns.name, ns.icon, body)
-        elseif not hasSeenNoSpaceMessage then
-            hasSeenNoSpaceMessage = true
-            ns:PrettyPrint(L.NoMacroSpace)
-        end
-    end
+function ns:IsTaintable()
+    return InCombatLockdown() or (UnitAffectingCombat("player") or UnitAffectingCombat("pet"))
 end
 
+
 function ns:Toggle()
+    if ns:IsTaintable() then
+        RaidNotice_AddMessage(RaidWarningFrame, L.Warning, ChatTypeInfo["RAID_WARNING"])
+        return
+    end
+
     local showingFriends = GetCVar("nameplateShowFriends") == "1" and true or false
     local showingEnemies = GetCVar("nameplateShowEnemies") == "1" and true or false
 
@@ -54,4 +48,8 @@ function ns:Toggle()
         SetCVar("nameplateShowEnemies", 1)
         ns:PrettyPrint(string.format(L.Showing, colorEnemy, L.Enemy))
     end
+end
+
+function ravnBinding()
+    ns:Toggle()
 end

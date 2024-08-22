@@ -1,5 +1,5 @@
 ## Interface: 110002
-## Version: 2.2.8
+## Version: 2.3.0
 
 ## Name: Ravenous Nameplates
 ## Title: Ravenous |cff87d387Nameplates|r

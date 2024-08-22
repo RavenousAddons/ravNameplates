@@ -3,7 +3,6 @@ local L = ns.L
 
 function ravNameplates_OnLoad(self)
     self:RegisterEvent("ADDON_LOADED")
-    self:RegisterEvent("PLAYER_ENTERING_WORLD")
 end
 
 function ravNameplates_OnEvent(_, event, arg)
@@ -18,9 +17,12 @@ function ravNameplates_OnEvent(_, event, arg)
                 print(string.format(L.InstallUpdate, ns.color))
             end
             RAVN_version = ns.version
+
+            local key1, key2 = GetBindingKey("RAVENOUS_NAMEPLATES_KEY")
+            if key1 and not key2 then
+                ns:PrettyPrint("This Addon now uses a Keybind setting instead of creating a macro. Go to your Game Options or Keybindings to find an option to \"Cycle Through Nameplates\".")
+            end
         end
-    elseif event == "PLAYER_ENTERING_WORLD" then
-        ns:EnsureMacro()
     end
 end
 
@@ -28,11 +30,7 @@ SlashCmdList["RAVNAMEPLATES"] = function(message)
     if message == "version" or message == "v" then
         ns:PrettyPrint(string.format(L.Version, ns.version))
     elseif message == "help" or message == "h" then
-        ns:PrettyPrint(L.SupportHeading)
-        print(string.format(L.Support1, ns.color, ns.name))
-        print(L.Support2)
-    elseif UnitAffectingCombat("player") then
-        RaidNotice_AddMessage(RaidWarningFrame, L.Warning, ChatTypeInfo["RAID_WARNING"])
+        ns:PrettyPrint(L.Support)
     else
         ns:Toggle()
     end
@@ -40,3 +38,5 @@ end
 SLASH_RAVNAMEPLATES1 = "/ravn"
 SLASH_RAVNAMEPLATES2 = "/ns"
 SLASH_RAVNAMEPLATES3 = "/ravenousnameplates"
+
+BINDING_NAME_RAVENOUS_NAMEPLATES_KEY = L.CycleNameplates

@@ -1,0 +1,7 @@
+<Bindings>
+
+    <Binding name="RAVENOUS_NAMEPLATES_KEY" category="Ravenous Nameplates">
+        ravnBinding()
+    </Binding>
+
+</Bindings>

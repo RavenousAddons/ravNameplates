@@ -9,9 +9,8 @@ setmetatable(L, { __index = function(t, k)
 end })
 
 -- Default (English)
-L.SupportHeading = "Information and How to Use"
-L.Support1 = "This Addon creates and maintains a macro called |cff%1$s%2$s|r for you under General Macros." -- ns.color, ns.name
-L.Support2 = "Check out the Addon on GitHub, WoWInterface, or Curse for more info and support!"
+L.CycleNameplates = "Cycle Through Nameplates"
+L.Support = "\nThis Addon creates a keybind setting that will allow you to cycle through the nameplate displays.\nCheck out the Addon on CurseForge, GitHub, or WoWInterface for more info and support!"
 L.Version = "%s is the current version." -- ns.version
 L.Install = "Thanks for installing |cff%1$sv%2$s|r!" -- ns.color, ns.version
 L.Update = "Thanks for updating to |cff%1$sv%2$s|r!" -- ns.color, ns.version
@@ -22,7 +21,6 @@ L.Enemy = "enemy"
 L.Showing = "Showing |cff%1$s%2$s|r nameplates." -- DYNAMIC, DYNAMIC
 L.Hiding = "Hiding |cff%1$s%2$s|r nameplates." -- DYNAMIC, DYNAMIC
 L.Warning = "You cannot change nameplates while in combat!"
-L.NoMacroSpace = "Unfortunately, you don't have enough global macro space for the macro to be created!"
 
 -- Check locale and assign appropriate
 local CURRENT_LOCALE = GetLocale()
