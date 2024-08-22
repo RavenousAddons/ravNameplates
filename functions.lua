@@ -31,22 +31,22 @@ function ns:Toggle()
     if showingFriends and showingEnemies then
         SetCVar("nameplateShowFriends", 0)
         SetCVar("nameplateShowEnemies", 0)
-        ns:PrettyPrint(string.format(L.Hiding, colorNone, L.All))
+        print(string.format(L.Hiding, colorNone, L.All))
     -- Friendly → All
     elseif showingFriends then
         SetCVar("nameplateShowFriends", 1)
         SetCVar("nameplateShowEnemies", 1)
-        ns:PrettyPrint(string.format(L.Showing, colorNeutral, L.All))
+        print(string.format(L.Showing, colorNeutral, L.All))
     -- Enemy → Friendly
     elseif showingEnemies then
         SetCVar("nameplateShowFriends", 1)
         SetCVar("nameplateShowEnemies", 0)
-        ns:PrettyPrint(string.format(L.Showing, colorFriendly, L.Friendly))
+        print(string.format(L.Showing, colorFriendly, L.Friendly))
     -- None → Enemy
     else
         SetCVar("nameplateShowFriends", 0)
         SetCVar("nameplateShowEnemies", 1)
-        ns:PrettyPrint(string.format(L.Showing, colorEnemy, L.Enemy))
+        print(string.format(L.Showing, colorEnemy, L.Enemy))
     end
 end
 

@@ -10,7 +10,8 @@ end })
 
 -- Default (English)
 L.CycleNameplates = "Cycle Through Nameplates"
-L.Support = "\nThis Addon creates a keybind setting that will allow you to cycle through the nameplate displays.\nCheck out the Addon on CurseForge, GitHub, or WoWInterface for more info and support!"
+L.Support1 = "This Addon uses a Keybind setting to cycle through nameplates. Go to your Keybindings or search in Game Options to find an option to \"Cycle Through Nameplates\"."
+L.Support2 = "Check out the Addon on CurseForge, GitHub, or WoWInterface for more info and support!"
 L.Version = "%s is the current version." -- ns.version
 L.Install = "Thanks for installing |cff%1$sv%2$s|r!" -- ns.color, ns.version
 L.Update = "Thanks for updating to |cff%1$sv%2$s|r!" -- ns.color, ns.version

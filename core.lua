@@ -1,6 +1,8 @@
 local name, ns = ...
 local L = ns.L
 
+local CT = C_Timer
+
 function ravNameplates_OnLoad(self)
     self:RegisterEvent("ADDON_LOADED")
 end
@@ -18,10 +20,12 @@ function ravNameplates_OnEvent(_, event, arg)
             end
             RAVN_version = ns.version
 
-            local key1, key2 = GetBindingKey("RAVENOUS_NAMEPLATES_KEY")
-            if key1 and not key2 then
-                ns:PrettyPrint("This Addon now uses a Keybind setting instead of creating a macro. Go to your Game Options or Keybindings to find an option to \"Cycle Through Nameplates\".")
-            end
+            CT.After(3, function ()
+                local key1, key2 = GetBindingKey("RAVENOUS_NAMEPLATES_KEY")
+                if not key1 and not key2 then
+                    ns:PrettyPrint("\n" .. L.Support1)
+                end
+            end)
         end
     end
 end
@@ -30,7 +34,7 @@ SlashCmdList["RAVNAMEPLATES"] = function(message)
     if message == "version" or message == "v" then
         ns:PrettyPrint(string.format(L.Version, ns.version))
     elseif message == "help" or message == "h" then
-        ns:PrettyPrint(L.Support)
+        ns:PrettyPrint("\n" .. L.Support1 .. "\n" .. L.Support2)
     else
         ns:Toggle()
     end
