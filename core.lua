@@ -4,29 +4,24 @@ local L = ns.L
 local CT = C_Timer
 
 function ravNameplates_OnLoad(self)
-    self:RegisterEvent("ADDON_LOADED")
+    self:RegisterEvent("PLAYER_LOGIN")
 end
 
 function ravNameplates_OnEvent(_, event, arg)
-    if arg == name then
-        if event == "ADDON_LOADED" then
-            if not RAVN_version then
-                ns:PrettyPrint(string.format(L.Install, ns.color, ns.version))
-            elseif RAVN_version ~= ns.version then
-                ns:PrettyPrint(string.format(L.Update, ns.color, ns.version))
-            end
-            if not RAVN_version or RAVN_version ~= ns.version then
-                print(string.format(L.InstallUpdate, ns.color))
-            end
-            RAVN_version = ns.version
-
-            CT.After(3, function ()
-                local key1, key2 = GetBindingKey("RAVENOUS_NAMEPLATES_KEY")
-                if not key1 and not key2 then
-                    ns:PrettyPrint("\n" .. L.Support1)
-                end
-            end)
+    if event == "PLAYER_LOGIN" then
+        if not RAVN_version then
+            ns:PrettyPrint(string.format(L.Install, ns.color, ns.version))
+        elseif RAVN_version ~= ns.version then
+            -- Version-specific messages go here...
         end
+        RAVN_version = ns.version
+
+        CT.After(3, function ()
+            local key1, key2 = GetBindingKey("RAVENOUS_NAMEPLATES_KEY")
+            if not key1 and not key2 then
+                ns:PrettyPrint("\n" .. L.Support1)
+            end
+        end)
     end
 end
 
