@@ -21,38 +21,8 @@ L.Showing = "Showing |cff%1$s%2$s|r nameplates." -- DYNAMIC, DYNAMIC
 L.Hiding = "Hiding |cff%1$s%2$s|r nameplates." -- DYNAMIC, DYNAMIC
 L.Warning = "You cannot change nameplates while in combat!"
 
--- Check locale and assign appropriate
+-- Check locale and apply appropriate changes below
 local CURRENT_LOCALE = GetLocale()
 
--- German
-if CURRENT_LOCALE == "deDE" then return end
-
--- Spanish
-if CURRENT_LOCALE == "esES" then return end
-
--- Latin-American Spanish
-if CURRENT_LOCALE == "esMX" then return end
-
--- French
-if CURRENT_LOCALE == "frFR" then return end
-
--- Italian
-if CURRENT_LOCALE == "itIT" then return end
-
--- Brazilian Portuguese
-if CURRENT_LOCALE == "ptBR" then return end
-
--- Russian
-if CURRENT_LOCALE == "ruRU" then return end
-
--- Korean
-if CURRENT_LOCALE == "koKR" then return end
-
--- Simplified Chinese
-if CURRENT_LOCALE == "zhCN" then return end
-
--- Traditional Chinese
-if CURRENT_LOCALE == "zhTW" then return end
-
--- Swedish
-if CURRENT_LOCALE == "svSE" then return end
+-- XXXX
+-- if CURRENT_LOCALE == "xxXX" then return end

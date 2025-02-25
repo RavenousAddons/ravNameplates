@@ -4,11 +4,12 @@ local L = ns.L
 local CT = C_Timer
 
 function ravNameplates_OnLoad(self)
-    self:RegisterEvent("PLAYER_LOGIN")
+    self:RegisterEvent("PLAYER_ENTERING_WORLD")
 end
 
 function ravNameplates_OnEvent(_, event, arg)
-    if event == "PLAYER_LOGIN" then
+    if event == "PLAYER_ENTERING_WORLD" then
+        local isInitialLogin, isReloadingUi = ...
         if not RAVN_version then
             ns:PrettyPrint(string.format(L.Install, ns.color, ns.version))
         elseif RAVN_version ~= ns.version then
@@ -35,7 +36,6 @@ SlashCmdList["RAVNAMEPLATES"] = function(message)
     end
 end
 SLASH_RAVNAMEPLATES1 = "/ravn"
-SLASH_RAVNAMEPLATES2 = "/ns"
-SLASH_RAVNAMEPLATES3 = "/ravenousnameplates"
+SLASH_RAVNAMEPLATES2 = "/ravenousnameplates"
 
 BINDING_NAME_RAVENOUS_NAMEPLATES_KEY = L.CycleNameplates
