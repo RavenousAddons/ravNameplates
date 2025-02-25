@@ -7,7 +7,7 @@ function ravNameplates_OnLoad(self)
     self:RegisterEvent("PLAYER_ENTERING_WORLD")
 end
 
-function ravNameplates_OnEvent(_, event, arg)
+function ravNameplates_OnEvent(self, event, ...)
     if event == "PLAYER_ENTERING_WORLD" then
         local isInitialLogin, isReloadingUi = ...
         if not RAVN_version then
@@ -23,6 +23,8 @@ function ravNameplates_OnEvent(_, event, arg)
                 ns:PrettyPrint("\n" .. L.Support1)
             end
         end)
+
+        self:UnregisterEvent("PLAYER_ENTERING_WORLD")
     end
 end
 
