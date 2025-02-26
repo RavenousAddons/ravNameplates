@@ -1,11 +1,23 @@
 ## Interface: 110100
-## Version: 2.3.4
+## Version: 2.3.5
 
 ## Name: Ravenous Nameplates
 ## Title: Ravenous |cff87d387Nameplates|r
 ## Notes: Cycles through four different nameplate configurations: enemy, friendly, all, none.|n|n|cffbbbbbbSlash command: /ravn|r
 ## Author: RavenousAddons
 ## IconAtlas: nameplates-icon-flag-neutral
+
+## Category-enUS: Unit Frames
+## Category-deDE: Einheitenfenster
+## Category-esES: Marcos de unidades
+## Category-esMX: Marcos de unidades
+## Category-frFR: Portraits d'unités
+## Category-itIT: Riquadri delle unità
+## Category-koKR: 개체창
+## Category-ptBR: Quadros de unidade
+## Category-ruRU: Рамки портретов
+## Category-zhCN: 单位框体
+## Category-zhTW: 單位框架
 
 ## SavedVariables: RAVN_version
 
